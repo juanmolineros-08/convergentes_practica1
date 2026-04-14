@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/compartido":{"guestpath":"/home/vagrant/compartido","hostpath":"C:/Users/Juan David/PRACTICA1/convergentes_practica1/srsRAN4G/compartido","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/Juan David/PRACTICA1/convergentes_practica1/srsRAN4G","disabled":false,"__vagrantfile":true}}}
