@@ -1,19 +1,28 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
 Vagrant.configure("2") do |config|
 
-  # Imagen base
   config.vm.box = "ubuntu/jammy64"
 
-  # Red privada (IP automática)
-  config.vm.network "private_network", ip: "192.168.56.10"
+  # Red bridge
   config.vm.network "public_network"
-  # Carpeta compartida (opcional pero recomendado)
-  config.vm.synced_folder "./compartido", "/home/vagrant/compartido"
 
-  # Configuración de VirtualBox
+  # Recursos
   config.vm.provider "virtualbox" do |vb|
-    vb.name = "neptuno"
-    vb.memory = "2048"
+    vb.memory = "4086"
     vb.cpus = 2
   end
+  
+config.vm.synced_folder "./compartido", "/home/vagrant/compartido"
+
+  # Provisioning (instalación automática)
+  config.vm.provision "shell", inline: <<-SHELL
+    sudo apt update
+
+    # instalar git
+    sudo apt install -y git
+
+  SHELL
 
 end
